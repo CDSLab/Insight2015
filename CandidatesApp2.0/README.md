@@ -106,7 +106,12 @@ topic.  But we already had a REST API from Cloudant, so why did we create anothe
 function node in our flow after the http request, you can see some Javascript code that does this.  The other reason is that we can avoid any same-origin policy problems if we wish to
 also use our NodeJS/Node Red application to render a UI on top of this REST API.
 
+## 6. Create a word cloud with the concepts Watson has extracted
 
+* Import the nodes from wordcloudflow.txt in the files directory, as you did to generate the original flow.  You can
+paste it onto the same canvass or create a new sheet by clicking the plus button.  Then deploy again (modified nodes only).
+* Now go to http://your_app_URL/wordcloud, and you should see a graphical representation of the concepts. The size
+of the word corresponds to how many instances it has occurred in the documents that Watson has analyzed.
 
 
  
