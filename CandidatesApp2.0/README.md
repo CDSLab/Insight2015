@@ -39,7 +39,7 @@ If you have already completed version 1.0 of the app, you can skip this part and
 ![alt text](https://raw.githubusercontent.com/CDSLab/Insight2015/master/CandidatesApp1.0/images/%245A2C55CE3129CFC8.bmp)
  and select **Import** > **Clipboard**  
 * In the textbox, paste the content of the file **CandidatesApp2.0_Import_Sheet1.txt** in the folder **files** of this project. Click **Ok**  
-![alt text](https://raw.githubusercontent.com/CDSLab/Insight2015/master/CandidatesApp2.0/images/node_flow.jpg)
+![alt text](https://raw.githubusercontent.com/CDSLab/Insight2015/master/CandidatesApp2.0/images/nodeflow.jpg)
 
 Now let's do some configuration of our flow:
 
