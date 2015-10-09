@@ -1,12 +1,12 @@
-# 1. Get to know our App
+# Candidates App 2.0 
 
-### What is our App?
+## 1. What is our app ?
 
 We want to dig deeper and know more about the articles that are being linked inside tweets.  For this, we will leverage the Watson Alchemy API service which can extract
 keywords, entities, concepts, and document-level sentiment from web links.  So our flow will extract the links from the tweets and feed them to the Watson service which 
 will then write the analysis to a Cloudant database.  
 
-# 2. Getting started
+## 2. Getting started
 
 If you have already completed version 1.0 of the app, you can skip this part and go directly to section 3, else please follow these directions to create your boilerplate and Node Red flow.
 
@@ -28,7 +28,7 @@ If you have already completed version 1.0 of the app, you can skip this part and
 
 ####We are done with the setup of the Node-RED app and the Watson Alchemy API service. 
 
-# 3. Let's create our Node-RED flow!
+## 3. Let's create our Node-RED flow!
 
 #### The Node-RED flow
 
@@ -60,7 +60,7 @@ information about the article linked from the URL - double click on it and you c
 document sentiment.  All of these things are passed along in the JSON payload into the Cloudant node, where they are stored into a Cloudant database called "features".
 
 
-# 4. Define a map-reduce view in our Cloudant database 
+## 4. Define a map-reduce view in our Cloudant database 
 
 * Open up your app in Bluemix, and click on the Cloudant service.  There should be a green launch button in the upper right.  Click it to launch the Cloudant management console.
 * If tweets have gone into Cloudant already, then you should see a database already created called "features", this is where the document features from the articles are being stored.  Click on it.
@@ -91,7 +91,7 @@ document sentiment.  All of these things are passed along in the JSON payload in
 *Let's take a closer look at what we just did.*  We defined a map-reduce view.  It first searches for all the concepts with a relevance score greater than 0.9 and assigns a 1 to them,
 then the reduce counts up all of the like concepts and returns the value of the count for each concept.
 
-# 5. Define a REST API in Node-Red 
+## 5. Define a REST API in Node-Red 
 
 * In the screen where you defined your view, in the upper-right hand corner, click "Query Options" and select the "Reduce" checkbox and click the blue "Query" button.
 * Now click "API URL", and "Copy" the REST API URL to your clipboard.
