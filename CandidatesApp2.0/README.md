@@ -54,6 +54,7 @@ service - and paste the API key into the form where it says "API Key".
 
 * Now we are ready to deploy our flow for the first time.  Click **Deploy**.  
 * If you activate the debug node coming out of "Feature extract", then in the **debug** panel on the right, you should start seeing the live tweets that are being saved into your Cloudant database.
+
 *Let's take a closer look at what we just did.*  We imported a flow that represents a flow of data from left to right.  On the left we have a Twitter node that is triggered whenever
 a new tweet about our topic comes in.  Then a function node has some javascript that checks if a URL is included in that tweet.  Next, the Watson alchemy API node extracts key 
 information about the article linked from the URL - double click on it and you can see all the things we are extracting - title, entities, keywords, concepts, publication date and
