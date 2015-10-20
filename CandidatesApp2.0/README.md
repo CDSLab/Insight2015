@@ -88,6 +88,7 @@ document sentiment.  All of these things are passed along in the JSON payload in
 
 
 * Under "Reduce (optional)", choose "_count".
+* Click on "Save&BuildIndex" button
 
 *Let's take a closer look at what we just did.*  We defined a map-reduce view.  It first searches for all the concepts with a relevance score greater than 0.9 and assigns a 1 to them,
 then the reduce counts up all of the like concepts and returns the value of the count for each concept.
