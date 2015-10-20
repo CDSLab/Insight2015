@@ -47,14 +47,13 @@ lab that plenty of tweets go out every minute about this subject, so you can see
 ![alt text](https://raw.githubusercontent.com/CDSLab/IDUG2015/master/CandidatesApp/images/edit_twitter_in_node.bmp) 
 * Point the cloudant node to your service.  Open it up and in the dropdown select the service that was created and bound to your Node Red application as part of the boilerplate
 creation process.
-* If you activate the debug node coming out of "Feature extract", then in the **debug** panel on the right, you should start seeing the live tweets that are being saved into your 
-Cloudant database. 
 
 * Now configure the Watson Alchemy API key  
 Watson Alchemy API is also available as a service in Bluemix, so we could have bound that to our application and made use of it here.  However, in the interest of time (this is a "15 minute lab, afterall"), you will use our shared API key, which is 'b11f5004cb71c77c5d06b6464132177190dc9c0a'. Please double click on the node labeled "Feature Extract" - this is the node that interfaces with the Alchemy API 
 service - and paste the API key into the form where it says "API Key".
 
 * Now we are ready to deploy our flow for the first time.  Click **Deploy**.  
+* If you activate the debug node coming out of "Feature extract", then in the **debug** panel on the right, you should start seeing the live tweets that are being saved into your Cloudant database.
 
 *Let's take a closer look at what we just did.*  We imported a flow that represents a flow of data from left to right.  On the left we have a Twitter node that is triggered whenever
 a new tweet about our topic comes in.  Then a function node has some javascript that checks if a URL is included in that tweet.  Next, the Watson alchemy API node extracts key 
@@ -89,6 +88,7 @@ document sentiment.  All of these things are passed along in the JSON payload in
 
 
 * Under "Reduce (optional)", choose "_count".
+* Click on "Save&BuildIndex" button
 
 *Let's take a closer look at what we just did.*  We defined a map-reduce view.  It first searches for all the concepts with a relevance score greater than 0.9 and assigns a 1 to them,
 then the reduce counts up all of the like concepts and returns the value of the count for each concept.
