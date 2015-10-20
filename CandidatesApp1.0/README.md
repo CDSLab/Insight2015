@@ -9,7 +9,7 @@ This will take care of your _Sign Up_ and _Log In_ into the Bluemix portal.
 We want to try to figure out the popularity of the Candidates - "Hillary Clinton" and "Jeb Bush", based on the sentiments of the *live* tweets concerning them. All this with minimal _(almost none)_ code and with a drag-drop flow diagram feature that is up and running within minutes.  
 
 Here is a screenshot of the app that you will be making and hosting on the cloud, powered by the SQLDB cloud database:
-![alt text](https://raw.githubusercontent.com/CDSLab/IDUG2015/master/CandidatesApp/images/bar_chart_bush.bmp)
+![alt text](https://raw.githubusercontent.com/CDSLab/IDUG2015/master/CandidatesApp/images/Chart.jpg)
 
 Your results will look different, as this is based on live twitter data. You can see that on the particular day when this screenshot was taken, tweets about Jeb Bush were trending negative.
 
@@ -104,7 +104,10 @@ the name of the service.  Open each SQLDB node by double clicking and select the
 * Go back to the SQLDB console and validate the records being inserted into the tables we created.  
 * Now, click the icon on the top right corner of the middle panel to create a new sheet in the flow editor.
 * From the **Import** > **Clipboard** textbox as earlier, import the contents of the file **CandidatesApp_Import_Sheet2.txt**.
-* #Point the SQLDB nodes to your service.  Since you have created a new SQLDB service and bound it to your application, you need to tell each of the 4 SQLDB nodes in your flow
+
+![alt text](https://raw.githubusercontent.com/CDSLab/IDUG2015/master/CandidatesApp/images/sheet2.jpg) 
+
+* ##Point the SQLDB nodes to your service.  Since you have created a new SQLDB service and bound it to your application, you need to tell each of the 4 SQLDB nodes in your flow
 the name of the service.  Open each SQLDB node by double clicking and select the service name from the dropdown and click OK.
 * Click **Deploy**
 
