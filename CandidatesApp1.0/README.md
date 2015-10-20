@@ -107,7 +107,7 @@ the name of the service.  Open each SQLDB node by double clicking and select the
 
 ![alt text](https://raw.githubusercontent.com/CDSLab/Insight2015/master/CandidatesApp1.0/images/sheet2.jpg) 
 
-* ##Point the SQLDB nodes to your service.  Since you have created a new SQLDB service and bound it to your application, you need to tell each of the 4 SQLDB nodes in your flow
+* Point the SQLDB nodes to your service.  Since you have created a new SQLDB service and bound it to your application, you need to tell each of the 4 SQLDB nodes in your flow
 the name of the service.  Open each SQLDB node by double clicking and select the service name from the dropdown and click OK.
 * Click **Deploy**
 
