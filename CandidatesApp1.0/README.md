@@ -104,6 +104,8 @@ the name of the service.  Open each SQLDB node by double clicking and select the
 * Go back to the SQLDB console and validate the records being inserted into the tables we created.  
 * Now, click the icon on the top right corner of the middle panel to create a new sheet in the flow editor.
 * From the **Import** > **Clipboard** textbox as earlier, import the contents of the file **CandidatesApp_Import_Sheet2.txt**.
+* #Point the SQLDB nodes to your service.  Since you have created a new SQLDB service and bound it to your application, you need to tell each of the 4 SQLDB nodes in your flow
+the name of the service.  Open each SQLDB node by double clicking and select the service name from the dropdown and click OK.
 * Click **Deploy**
 
 ### We have created the Node-RED flow required for the App. 
