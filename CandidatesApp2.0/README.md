@@ -12,21 +12,17 @@ If you have already completed version 1.0 of the app, you can skip this part and
 
 ####Set up the Node-RED boilerplate
 * Login to your Bluemix account.  If you do not have one already, go to http://ace.ng.bluemix.net, and sign up for a new account.  
-* After you login with your Bluemix account, you will see a list of *Applications* and *Services* in Bluemix. We are going to create a Node-RED boilerplate application and *bind* the Alchemy API service to the application.  A Boilerplate can be imagined as a bundled application with relevant bound services for a particular targeted usage to get up and running quickly. 
+* After you login with your Bluemix account, you will see a list of *Applications* and *Services* in Bluemix. We are going to create a Node-RED boilerplate application.  A boilerplate can be imagined as a bundled application with relevant bound services for a particular targeted usage to get up and running quickly. 
 * In the upper menu bar, go to **CATALOG**  
 * This page lists all kinds of different boilerplates, runtimes and services that are offered by Bluemix. Browsing through this page can give you an idea about all the exciting features offered by Bluemix.*   
 * From the Boilerplates section, select the **Node-RED starter** boilerplate.  
-*Here you can see the SDK for Node.JS and the two services - Cloudant and Monitoring & Analytics that come as a part of the Node-RED boilerplate. We will be using the Cloudant service and also binding the Watson Alchemy API service as well.*  
+*Here you can see the SDK for Node.JS and the two services - Cloudant and Monitoring & Analytics that come as a part of the Node-RED boilerplate. We will be using the Cloudant service to store the metadata from our Node Red flow as well as information from the tweets that we store.*  
 * Provide a **unique name** to the app on the right side of the page and click **CREATE**. A non-unique name would notify and urge you to think of a more creative name.  
 * In a couple of minutes, your application will be staging and ready to run. 
 * You will land up on the 'Start coding with Node-RED' page. The instructions on this page are to get familiar with Cloud Foundry command line interface to control your application. You can go through the steps and try them out at leisure. We won't be needing that for our app right now. 
 * On the left panel, click on **Overview**. This is the overview of your Application showing the link to go to the App, status of the app, instances, memory and the services bound to it.  
-* We want to bind the Watson "Alchemy API" service to the App. Lets click on the **ADD A SERVICE OR API** button.
-* Search for the "Alchemy API" service in the search tab or select the **Alchemy API** service in the Watson section.
-* In the right hand side panel, the app name would be pre-filled and the service name would be randomly generated. The selected plan should be defaulted to Free plan. Click **CREATE**.   
-* The app will now **RESTAGE**, which should take a minute. When done, your Alchemy API service is now bound with the Node-RED App and should show up on the App Overview page.  
 
-####We are done with the setup of the Node-RED app and the Watson Alchemy API service. 
+####We are done with the setup of the Node-RED app
 
 ## 3. Let's create our Node-RED flow!
 
@@ -45,15 +41,20 @@ Now let's do some configuration of our flow:
 
 * Set the Twitter credentials  
 Double click on the blue Twitter node on the left of your flow and setup the "Login as" using the icon next to it. You will need to have a Twitter account to authenticate to the Twitter service.
-The twitter node is set by default to monitor "Jeb Bush", but you can change this to another candidate or to be anything you want.
+The twitter node is set by default to monitor "Jeb Bush", but you can change this to another candidate or to be anything you want, such as a favorite hashtag. Just be sure for the purposes of the
+lab that plenty of tweets go out every minute about this subject, so you can see the data being populated in real time.
  
 ![alt text](https://raw.githubusercontent.com/CDSLab/IDUG2015/master/CandidatesApp/images/edit_twitter_in_node.bmp) 
 * Point the cloudant node to your service.  Open it up and in the dropdown select the service that was created and bound to your Node Red application as part of the boilerplate
 creation process.
-* Now we are ready to deploy our flow.  Click **Deploy**.  
 * If you activate the debug node coming out of "Feature extract", then in the **debug** panel on the right, you should start seeing the live tweets that are being saved into your 
 Cloudant database. 
 
+* Now configure the Watson Alchemy API key  
+Watson Alchemy API is also available as a service in Bluemix, so we could have bound that to our application and made use of it here.  However, in the interest of time (this is a "15 minute lab, afterall"), you will use our shared API key, which is 'b11f5004cb71c77c5d06b6464132177190dc9c0a'. Please double click on the node labeled "Feature Extract" - this is the node that interfaces with the Alchemy API 
+service - and paste the API key into the form where it says "API Key".
+
+* Now we are ready to deploy our flow for the first time.  Click **Deploy**.  
 *Let's take a closer look at what we just did.*  We imported a flow that represents a flow of data from left to right.  On the left we have a Twitter node that is triggered whenever
 a new tweet about our topic comes in.  Then a function node has some javascript that checks if a URL is included in that tweet.  Next, the Watson alchemy API node extracts key 
 information about the article linked from the URL - double click on it and you can see all the things we are extracting - title, entities, keywords, concepts, publication date and
