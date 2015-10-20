@@ -9,7 +9,7 @@ This will take care of your _Sign Up_ and _Log In_ into the Bluemix portal.
 We want to try to figure out the popularity of the Candidates - "Hillary Clinton" and "Jeb Bush", based on the sentiments of the *live* tweets concerning them. All this with minimal _(almost none)_ code and with a drag-drop flow diagram feature that is up and running within minutes.  
 
 Here is a screenshot of the app that you will be making and hosting on the cloud, powered by the SQLDB cloud database:
-![alt text](https://raw.githubusercontent.com/CDSLab/IDUG2015/master/CandidatesApp/images/Chart.jpg)
+![alt text](https://raw.githubusercontent.com/CDSLab/Insight2015/master/CandidatesApp1.0/images/Chart.jpg)
 
 Your results will look different, as this is based on live twitter data. You can see that on the particular day when this screenshot was taken, tweets about Jeb Bush were trending negative.
 
