@@ -50,6 +50,7 @@ lab that plenty of tweets go out every minute about this subject, so you can see
 ![alt text](https://raw.githubusercontent.com/CDSLab/IDUG2015/master/CandidatesApp/images/edit_twitter_in_node.bmp) 
 * Point the cloudant node to your service.  Open it up and in the dropdown select the service that was created and bound to your Node Red application as part of the boilerplate
 creation process.
+![alt text](https://raw.githubusercontent.com/CDSLab/Insight2015/master/CandidatesApp2.0/images/Cloudant.jpg)
 
 * Now configure the Watson Alchemy API key  
 Watson Alchemy API is also available as a service in Bluemix, so we could have bound that to our application and made use of it here.  However, in the interest of time (this is a "15 minute lab, afterall"), you will use our shared API key, which is 'b11f5004cb71c77c5d06b6464132177190dc9c0a'. Please double click on the node labeled "Feature Extract" - this is the node that interfaces with the Alchemy API 
@@ -60,8 +61,7 @@ service - and paste the API key into the form where it says "API Key".
 
 *Let's take a closer look at what we just did.*  We imported a flow that represents a flow of data from left to right.  On the left we have a Twitter node that is triggered whenever
 a new tweet about our topic comes in.  Then a function node has some javascript that checks if a URL is included in that tweet.  Next, the Watson alchemy API node extracts key 
-information about the article linked from the URL - double click on it and you can see all the things we are extracting - title, entities, keywords, concepts, publication date and
-document sentiment.  All of these things are passed along in the JSON payload into the Cloudant node, where they are stored into a Cloudant database called "features".
+information about the article linked from the URL - double click on it and you can see that we are extracting concepts using API.  It is  passed along in the JSON payload into the Cloudant node, where it is stored into a Cloudant database called "features".
 
 
 ## 4. Define a map-reduce view in our Cloudant database 
@@ -69,6 +69,9 @@ document sentiment.  All of these things are passed along in the JSON payload in
 * Open up your app in Bluemix, and click on the Cloudant service.  There should be a green launch button in the upper right.  Click it to launch the Cloudant management console.
 * If tweets have gone into Cloudant already, then you should see a database already created called "features", this is where the document features from the articles are being stored.  Click on it.
 * Click on the plus sign next to "All Design Docs", and select "New View".
+
+![alt text](https://raw.githubusercontent.com/CDSLab/Insight2015/master/CandidatesApp2.0/images/newview.jpg)
+
 * Under "Design Document", select "New Design Document", and give "app" as the design doc name.
 * For "Index name", name is "concepts"
 * Under "map function", paste in the following code:
@@ -91,7 +94,9 @@ document sentiment.  All of these things are passed along in the JSON payload in
 
 
 * Under "Reduce (optional)", choose "_count".
-* Click on "Save&BuildIndex" button
+* Click on "Save&BuildIndex" button.
+
+![alt text](https://raw.githubusercontent.com/CDSLab/Insight2015/master/CandidatesApp2.0/images/buildIndex.jpg)
 
 *Let's take a closer look at what we just did.*  We defined a map-reduce view.  It first searches for all the concepts with a relevance score greater than 0.9 and assigns a 1 to them,
 then the reduce counts up all of the like concepts and returns the value of the count for each concept.
@@ -99,11 +104,17 @@ then the reduce counts up all of the like concepts and returns the value of the 
 ## 5. Define a REST API in Node-Red 
 
 * In the screen where you defined your view, in the upper-right hand corner, click "Query Options" and select the "Reduce" checkbox and click the blue "Query" button.
+
+![alt text](https://raw.githubusercontent.com/CDSLab/Insight2015/master/CandidatesApp2.0/images/querry.jpg)
+
 * Now click "API URL", and "Copy" the REST API URL to your clipboard.
 * Now, adjust permissions in Cloudant so that our view can be called with a REST API.  To do this, go to the top-level page for your "features" database, and click on 
 "Permissions", and select the checkbox next to "Reader" for "Everybody Else".
-* Now, go back to your Node Red flow.  Open up the node labeled "http request", and paste in the URL that you just copied to your clipboard.  Now click on the red Deploy button but this
-time choose the option "Deploy->modified nodes".
+* Now, go back to your Node Red flow.  Open up the node labeled "http request", and paste in the URL that you just copied to your clipboard. 
+
+![alt text](https://raw.githubusercontent.com/CDSLab/Insight2015/master/CandidatesApp2.0/images/httpurl.jpg)
+
+* Now click on the red Deploy button.
 * Now, if you go to http://your_app_URL/concepts, you should see a count of the most common concepts discussed in the articles linked from the tweets you have collected!
 
 *Let's take a closer look at what we just did.*  We defined a REST API in Node Red to return the top counts of the most common concepts extracted from the articles tweeted about our
@@ -114,9 +125,11 @@ also use our NodeJS/Node Red application to render a UI on top of this REST API.
 ## 6. Create a word cloud with the concepts Watson has extracted
 
 * Import the nodes from wordcloudflow.txt in the files directory, as you did to generate the original flow.  You can
-paste it onto the same canvass or create a new sheet by clicking the plus button.  Then deploy again (modified nodes only).
+paste it onto the same canvass or create a new sheet by clicking the plus button.  Then deploy again.
 * Now go to http://your_app_URL/wordcloud, and you should see a graphical representation of the concepts. The size
 of the word corresponds to how many instances it has occurred in the documents that Watson has analyzed.
+
+![alt text](https://raw.githubusercontent.com/CDSLab/Insight2015/master/CandidatesApp2.0/images/canvas.jpg)
 
 
  
