@@ -16,6 +16,9 @@ If you have already completed version 1.0 of the app, you can skip this part and
 * In the upper menu bar, go to **CATALOG**  
 * This page lists all kinds of different boilerplates, runtimes and services that are offered by Bluemix. Browsing through this page can give you an idea about all the exciting features offered by Bluemix.*   
 * From the Boilerplates section, select the **Node-RED starter** boilerplate.  
+
+![alt text](https://raw.githubusercontent.com/CDSLab/Insight2015/master/CandidatesApp2.0/images/Boilerplate.jpg)
+
 *Here you can see the SDK for Node.JS and the two services - Cloudant and Monitoring & Analytics that come as a part of the Node-RED boilerplate. We will be using the Cloudant service to store the metadata from our Node Red flow as well as information from the tweets that we store.*  
 * Provide a **unique name** to the app on the right side of the page and click **CREATE**. A non-unique name would notify and urge you to think of a more creative name.  
 * In a couple of minutes, your application will be staging and ready to run. 
