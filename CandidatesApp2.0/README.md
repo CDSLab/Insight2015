@@ -110,6 +110,7 @@ then the reduce counts up all of the like concepts and returns the value of the 
 * Now click "API URL", and "Copy" the REST API URL to your clipboard.
 * Now, adjust permissions in Cloudant so that our view can be called with a REST API.  To do this, go to the top-level page for your "features" database, and click on 
 "Permissions", and select the checkbox next to "Reader" for "Everybody Else".
+* Check the value of limit in API. Change it to "limit=200" in URL.
 * Now, go back to your Node Red flow.  Open up the node labeled "http request", and paste in the URL that you just copied to your clipboard. 
 
 ![alt text](https://raw.githubusercontent.com/CDSLab/Insight2015/master/CandidatesApp2.0/images/httpurl.jpg)
