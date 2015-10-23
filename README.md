@@ -5,6 +5,7 @@ We are going to take a look at two Apps here:
 
 # Candidates App 1.0
 We want to try to figure out the popularity of the Candidates - "Hillary Clinton" and "Jeb Bush", based on the sentiments of the *live* tweets concerning them. All this with minimal _(almost none)_ code and with a drag-drop flow diagram feature that is up and running within minutes.  
+![alt text](https://raw.githubusercontent.com/CDSLab/Insight2015/master/CandidatesApp1.0/images/Chart.jpg)
 
 # Candidates App v2.0 with Watson  
 We will dig deeper and extract the content from URL's included in the tweets and the Watson Alchemy API service will extract the most common concepts from each document.
