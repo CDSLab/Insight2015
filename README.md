@@ -10,3 +10,4 @@ We want to try to figure out the popularity of the Candidates - "Hillary Clinton
 We will dig deeper and extract the content from URL's included in the tweets and the Watson Alchemy API service will extract the most common concepts from each document.
 We will store the output from Watson into a cloudant database, and then build a word cloud based on the most common concepts across all tweeted documents.
 
+![alt text](https://raw.githubusercontent.com/CDSLab/Insight2015/master/CandidatesApp2.0/images/canvas.jpg)
